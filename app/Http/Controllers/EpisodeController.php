@@ -97,7 +97,7 @@ class EpisodeController extends Controller
        $id = $_GET['id'];
        $movie =Movie::find($id);
       $output = '<option value="">----Chọn Tập----</option>';
-     for($i=0;$i<$movie->episode;$i++){
+     for($i=0;$i<$movie->episode_number;$i++){
         $output.='<option value="'.$i.'">'.$i.'</option>';
      }
     //  echo $output;

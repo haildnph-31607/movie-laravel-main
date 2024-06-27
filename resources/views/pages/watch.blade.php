@@ -16,12 +16,9 @@
         <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
             <section id="content" class="test">
                 <div class="clearfix wrap-content">
-
-                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/r958O404e4U"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-
+                       @foreach ($movie->episode as  $link)
+                          {!! $link->link !!}
+                       @endforeach
                     <div class="button-watch">
                         <ul class="halim-social-plugin col-xs-4 hidden-xs">
                             <li class="fb-like" data-href="" data-layout="button_count" data-action="like"

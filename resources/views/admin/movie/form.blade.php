@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group mb-3">
                             {!! Form::label('episode', 'Episode', []) !!}
-                            {!! Form::text('episode', isset($movie) ? $movie->episode : '', [
+                            {!! Form::text('episode', isset($movie) ? $movie->episode_number : '', [
                                 'class' => 'form-control ',
                                 'placeholder' => 'Nhập Episode....',
 

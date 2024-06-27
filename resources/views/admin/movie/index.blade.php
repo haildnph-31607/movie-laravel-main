@@ -51,7 +51,7 @@
                                     </td>
                                     <td class="hide-col-sm">{{ $item->description }}</td>
                                     <td class="hide-col-sm">{{ $item->slug }}</td>
-                                    <td>{{ $item->episode }}</td>
+                                    <td>{{ $item->episode_number }}</td>
                                     <td>
                                         <img src="{{ asset('/uploads/movie/' . $item->image) }}" width="100px"
                                             alt="loi">

@@ -60,9 +60,9 @@
                                     @endif
                                 </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
                                     @if ($items->subtitle == 0)
-                                        Phụ Đề - Tập {{$items->episode}}
+                                        Phụ Đề - Tập {{$items->episode_number}}
                                     @else
-                                        Thuyết Minh - Tập {{$items->episode}}
+                                        Thuyết Minh - Tập {{$items->episode_number}}
                                     @endif
                                 </span>
                                 <div class="icon_overlay"></div>

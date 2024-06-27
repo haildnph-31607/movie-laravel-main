@@ -74,7 +74,7 @@
                                         Phút</li>
                                         <li class="list-info-group-item last-item"
                                         style="-overflow: hidden;-display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-flex: 1;-webkit-box-orient: vertical;">
-                                        <span>Số Tập</span> : {{$detail->episode}}
+                                        <span>Số Tập</span> : {{$detail->episode_number}}
                                         </li>
                                     <li class="list-info-group-item"><span>Thể loại</span> : <a href=""
                                             rel="category tag">{{ $cate_detail->title }}</a>, <a href=""
