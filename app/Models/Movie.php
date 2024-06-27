@@ -12,8 +12,6 @@ class Movie extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-
-
     public function country()
     {
         return $this->belongsTo(Country::class, 'country_id');
@@ -21,5 +19,9 @@ class Movie extends Model
     public function genre()
     {
         return $this->belongsTo(Genre::class, 'genre_id');
+    }
+    public function episode()
+    {
+        return $this->hasMany(Episode::class);
     }
 }
