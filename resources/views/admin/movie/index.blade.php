@@ -28,16 +28,11 @@
                                 <th scope="col" class="hide-col-sm">Duration</th>
                                 <th scope="col" class="hide-col-sm">Tag</th>
                                 <th scope="col">Session</th>
-
-
-
-
                                 <th scope="col">Country</th>
-
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
-                        <tbody id="order_position">
+                        <tbody id="order_position" >
                             @foreach ($list as $item)
                                 <tr id="{{ $item->id }}">
                                     <td scope="row">{{ $item->id }}</td>

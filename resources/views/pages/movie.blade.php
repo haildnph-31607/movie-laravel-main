@@ -36,7 +36,7 @@
                                     <div class="bwa-content">
 
                                         <div class="loader"></div>
-                                        <a href="{{ route('watch',$detail->slug) }}" class="bwac-btn">
+                                        <a href="{{ route('watch',['slug'=>$detail->slug ,1]) }}" class="bwac-btn">
                                             <i class="fa fa-play"></i>
                                         </a>
                                     </div>

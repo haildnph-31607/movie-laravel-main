@@ -41,54 +41,16 @@
 
                             </select>
                         </div>
-
-
                         @if (isset($episode))
                             {!! Form::submit('Sửa', ['class' => 'btn btn-outline-success']) !!}
-                            <a href="{{ route('category.create') }}" class="btn btn-outline-primary">Quay Lại Thêm</a>
+                            <a href="{{ route('episode.index') }}" class="btn btn-outline-primary">Quay Lại </a>
                         @else
                             {!! Form::submit('Thêm', ['class' => 'btn btn-outline-success']) !!}
+                            <a href="{{ route('episode.index') }}" class="btn btn-outline-primary">Quay Lại </a>
                         @endif
 
                         {!! Form::close() !!}
                     </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Movie</th>
-                                <th scope="col">Link</th>
-                                <th scope="col">Episode</th>
-                                <th scope="col">Option</th>
-                            </tr>
-                        </thead>
-                        <tbody >
-                            @foreach ($list as $item)
-                                <tr >
-                                    <th scope="row">{{ $item->id }}</th>
-                                    <td>{{ $item->movie->title }}</td>
-                                    <td>
-                                        {{ $item->link }}
-                                    </td>
-                                    <td>{{ $item->episode }}</td>
-
-
-                                    <td>
-                                        {!! Form::open([
-                                            'method' => 'DELETE',
-                                            'route' => ['category.destroy', $item->id],
-                                            'onsubmit' => 'return confirm("Bạn muốn xoá ?")',
-                                        ]) !!}
-                                        {!! Form::submit('Xoá', ['class' => 'btn btn-danger delete', 'id' => 'btnDel']) !!}
-                                        {!! Form::close() !!}
-                                        <a href="{{ route('category.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-
-
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

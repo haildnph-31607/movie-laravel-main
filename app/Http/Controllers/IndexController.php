@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\Episode;
 use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class IndexController extends Controller
         $movie = Movie::where('category_id', $cate_slug->id)->orderBy('updated_at', 'DESC')->paginate(20);
         return view('pages.category', compact('category', 'genre', 'country', 'cate_slug', 'movie','movie_hot_sidebar'));
     }
-    public function watch($slug)
+    public function watch($slug,$id)
     {
         $movie_hot = Movie::where('movie_hot', 1)->where('status', 1)->orderBy('updated_at', 'DESC')->get();
         $movie_hot_sidebar = Movie::where('movie_hot', 1)->where('status', 1)->orderBy('updated_at','DESC')->take(10)->get();
@@ -46,8 +47,9 @@ class IndexController extends Controller
         $category_home = Category::with('movie')->orderBy('id', 'DESC')->where('status', 1)->get();
         $movie = Movie::with('category','genre','country','episode')->where('slug',$slug)->where('status',1)->first();
         $detail_lq = Movie::where('category_id', $movie->category_id)->get();
-        // return response()->json($movie);
-        return view('pages.watch', compact('category', 'genre', 'country', 'category_home', 'movie_hot','movie_hot_sidebar','movie','detail_lq'));
+        $firtfilm = Episode::where('movie_id',$movie->id)->first();
+        // return response()->json($firtfilm);
+        return view('pages.watch', compact('category', 'genre', 'country', 'category_home', 'movie_hot','movie_hot_sidebar','movie','detail_lq','firtfilm'));
     }
     public function country($slug)
     {

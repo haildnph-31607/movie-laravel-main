@@ -15,9 +15,9 @@ class EpisodeController extends Controller
      */
     public function index()
     {
-        //
+        $list = Episode::with('movie')->orderBy('id','DESC')->get();
+        return view('admin.episode.index' , compact('list'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,10 +25,10 @@ class EpisodeController extends Controller
      */
     public function create()
     {
-        $list = Episode::orderBy('id','DESC')->get();
-        $movie = Movie::pluck('title', 'id');;
-
-        return view('admin.episode.form',compact('list','movie'));
+        $list = Episode::with('movie')->orderBy('id','DESC')->get();
+        $movie = Movie::pluck('title', 'id');
+        // return response()->json($list);
+        return view('admin.episode.form',compact('movie'));
     }
 
     /**
@@ -46,7 +46,7 @@ class EpisodeController extends Controller
         $episode->link = $data['link'];
         $episode->episode = $data['episode'];
         $episode->save();
-        return redirect()->back();
+        return redirect()->to('episode');
     }
 
     /**
@@ -68,7 +68,9 @@ class EpisodeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie = Movie::pluck('title', 'id');
+        $episode = Episode::find($id);
+        return view('admin.episode.form' , compact('episode','movie'));
     }
 
     /**
@@ -80,7 +82,13 @@ class EpisodeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $episode = Episode::find($id);
+        $data = $request->all();
+        $episode->movie_id = $data['movie'];
+        $episode->link = $data['link'];
+        $episode->episode = $data['episode'];
+        $episode->save();
+        return redirect()->to('episode');
     }
 
     /**
@@ -91,7 +99,8 @@ class EpisodeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Episode::find($id)->delete();
+        return redirect()->to('episode');
     }
     public function episodeMovie(Request $request){
        $id = $_GET['id'];

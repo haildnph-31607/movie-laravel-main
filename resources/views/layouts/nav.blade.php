@@ -38,7 +38,7 @@
             <a class="nav-link" href="{{route('movie.index')}}">Phim</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('episode.create')}}">Tập Phim</a>
+            <a class="nav-link" href="{{route('episode.index')}}">Tập Phim</a>
           </li>
       </ul>
       <form class="form-inline d-flex my-2 my-lg-0 me-5 accc">
